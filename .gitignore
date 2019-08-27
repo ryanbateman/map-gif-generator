@@ -163,5 +163,5 @@ jspm_packages/
 # mypy
 .mypy_cache/
 
-# Test stuff
-test*.*
+# VSCode
+.devcontainer.json
