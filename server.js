@@ -57,7 +57,6 @@ app.post('/', (req, res) => {
 
 	console.log("Making promises...")
 	// For each layer, set up a Promise to render it, using our parameters
-
 	layers.forEach(function (layerToKeep, index) {
 		const styleClone = JSON.parse(JSON.stringify(style))
 
