@@ -41,8 +41,7 @@ app.post('/', (req, res) => {
 	console.log("-------------------------")
 	console.log("Request received")
 	const layers = req.body.layers
-	const title = req.body.title
-	const description = req.body.description
+	const tweetContent = req.body.tweetContent
 	const coords = req.body.coords
 	const zoom = req.body.zoom	
 	const publishTweet = req.body.publishTweet
@@ -58,6 +57,7 @@ app.post('/', (req, res) => {
 
 	console.log("Making promises...")
 	// For each layer, set up a Promise to render it, using our parameters
+
 	layers.forEach(function (layerToKeep, index) {
 		const styleClone = JSON.parse(JSON.stringify(style))
 
@@ -94,7 +94,7 @@ app.post('/', (req, res) => {
 			client.post('media/upload', {media: fileBuffer}, function(error, media, response) {
 			  if (!error) {
 			    var status = {
-			      status: "GIF up",
+			      status: tweetContent,
 			      media_ids: media.media_id_string // Pass the media id string
 			    }
 

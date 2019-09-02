@@ -33,6 +33,10 @@ MANIFEST
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 build/Release
 
+# Sublime text project files
+*.sublime-project
+*.sublime-workspace
+
 # Dependency directories
 node_modules/
 jspm_packages/
