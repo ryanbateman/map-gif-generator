@@ -56,14 +56,16 @@ app.post('/', (req, res) => {
 	var promises = new Array(layers.length)
 
 	console.log("Making promises...")
+	console.log("---")
+	console.log("Layers in style: ", style.layers.length)
+	console.log("Layers passed in: ", layers.length)
 	// For each layer, set up a Promise to render it, using our parameters
 	layers.forEach(function (layerToKeep, index) {
 		const styleClone = JSON.parse(JSON.stringify(style))
-
 		// Keep only the layer that is the one we're rendering OR 
 		// wasn't included in our list of passed layer IDs
 		styleClone.layers = styleClone.layers.filter(layer =>
-			layer.id == layerToKeep || !layers.includes(layer.id)
+			layer.id == layerToKeep 
 		)
 		promises[index] = render(styleClone, width, height, { zoom, center, token: `${ACCESS_TOKEN}` })	
 	})
